@@ -1,0 +1,51 @@
+The nslookup command is a network diagnostic tool used to obtain information about DNS (Domain Name System) records. It is typically used to query DNS servers to retrieve various types of DNS information, such as IP addresses associated with domain names or the mail exchange (MX) records for a domain
+	nslookup [options] [hostname or IP address] [DNS server]
+
+
+The tracert command (short for "trace route") is a network diagnostic tool used to trace the path that packets take from your computer to a destination IP address or domain name. 
+	tracert [options] [destination]
+
+
+DOS Commands
+
+ 
+
+ipconfig - The output of the default command contains the IP address, network mask and gateway for all physical and virtual network adapters.
+
+ 
+
+ipconfig /all - This option displays the same IP addressing information for each adapter as the default option. Additionally, it displays DNS and WINS settings for each adapter.
+
+ 
+
+Nslookup - Displays information that you can use to diagnose Domain Name System (DNS) infrastructure.
+
+Syntax:
+
+nslookup dns.name
+
+ 
+
+Tracert - Determines the path taken to a destination by sending Internet Control Message Protocol (ICMP) Echo Request messages to the destination with incrementally increasing Time to Live (TTL) field values. The path displayed is the list of near-side router interfaces of the routers in the path between a source host and a destination. The near-side interface is the interface of the router that is closest to the sending host in the path. Used without parameters, tracert displays help.
+
+Syntax:
+
+tracert [TargetName/IP Address]
+
+ 
+
+IOS Commands
+
+ 
+
+show ip interface – Displays the IP interface status and configuration
+
+show ip interface brief – Displays a brief summary of IP status and configuration
+
+show ip route – Displays the full IP routing table
+
+show ip route connected – Displays a list of active directly connected networks
+
+show running-config – Displays the current operating configuration
+
+traceroute – Trace route to destination

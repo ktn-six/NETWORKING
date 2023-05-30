@@ -1,0 +1,11 @@
+configuring ipv4 and ipv6 
+
+	IPV4
+R1(config)#int g0/0
+R1(config-if)#ip add 172.16.20.1 255.255.255.128
+R1(config-if)#no sh
+
+		IPV6
+R2(config)#int g0/0
+R2(config-if)#ipv6 address 2001:DB8:C0DE:12::1/64
+R2(config-if)#no sh
