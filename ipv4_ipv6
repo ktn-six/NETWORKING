@@ -6,7 +6,7 @@ R1(config-if)#ip add 172.16.20.1 255.255.255.128
 R1(config-if)#no sh
 
 
-		configure loopback
+		configure loopback ipv4
 
 R3(config)#interface lo10
 R3(config-if)#ip add 10.10.10.3 255.255.255.128
@@ -15,3 +15,22 @@ R3(config-if)#ip add 10.10.10.3 255.255.255.128
 R2(config)#int g0/0
 R2(config-if)#ipv6 address 2001:DB8:C0DE:12::1/64
 R2(config-if)#no sh
+
+
+
+		configure loopback ipv6
+
+R3(config)#interface lo0 
+R3(config-if)#ipv6 add 2001::5/64
+
+
+
+		verify congigs
+
+The summary of all configured IPv6 addresses
+
+	ipv6 int brief
+
+The status of the interface (up/down or administratively down); and The subnet mask applied to the interface.
+
+show ipv6 interface s0/0
