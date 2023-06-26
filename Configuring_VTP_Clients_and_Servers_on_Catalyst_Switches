@@ -1,0 +1,64 @@
+--By default, all Cisco switches are VTP server devices.
+--Configuring VTP client and server modes is a fundamental skill. 
+--VLANs are configured on VTP servers and VTP clients receive VLAN information from the VTP servers in the same VTP domain. 
+--VLAN sharing is possible by using a trunk between the switches.
+
+
+
+Configure and verify Sw1 as a VTP server switch and configure Sw2 as a VTP client switch. Both switches should be in the VTP domain named CISCO.
+
+Sw1(config)#vtp domain CISCO 
+
+
+configure Sw2 as a VTP client switch.
+
+Sw2(config)#vtp mode client
+
+
+Command to verify VTP status 
+
+	show vtp status
+
+
+Configure Trunking  and verify FastEthernet0/1 between Sw1 and Sw2 as an 802.1Q trunk.
+
+
+	Sw1#show int f0/1 switchport ---------- verify an interface
+	Sw1(config)#interface fastethernet0/1 
+	Sw1(config-if)#switchport mode trunk  ---------- enabling trunking
+
+
+	Sw1#show interfaces trunk   --------verify trunking
+
+
+Configure and verify VLANs 10 and 20 on Sw1 with the names provided above. 
+Sw1(config)#vlan10 
+Sw1(config-vlan)#name SALES 
+Sw1(config-vlan)#exit 
+Sw1(config)#vlan20 
+Sw1(config-vlan)#name MANAGERS 
+
+Assign FastEthernet0/2 on both Sw1 and Sw2 to VLAN10. This interface should be configured as an access port.
+
+Sw1(config)#interface fastethernet0/2 
+Sw1(config-if)#switchport mode access 
+Sw1(config-if)#switchport access vlan10 
+
+
+
+verify vlans
+
+	Sw1#show vlan brief
+
+
+Configure R1 and R3 FastEthernet0/0 interfaces with the IP addresses 10.0.0.1/28 
+
+
+R1(config)#interface  fastethernet0/0 
+R1(config-if)#ip address 10.0.0.1 255.255.255.240 
+R1(config-if)#no shutdown
+
+
+verify interfaces
+
+R1#show ip interface brief 
